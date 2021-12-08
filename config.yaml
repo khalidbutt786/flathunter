@@ -23,7 +23,9 @@ loop:
 # 	- https://www.immobilienscout24.de/Suche/...
 # 	- https://www.wg-gesucht.de/...
 urls:
-
+    - https://www.immobilienscout24.de/Suche/radius/wohnung-mieten?centerofsearchaddress=Dreieich;63303;;;;&numberofrooms=4.0-&price=-850.0&pricetype=rentpermonth&geocoordinates=50.00977;8.70518;15.0&enteredFrom=one_step_search
+    - https://www.ebay-kleinanzeigen.de/s-wohnung-mieten/63303/anzeige:angebote/preis::850/c203l4291r10+wohnung_mieten.zimmer_d:4,
+    - https://www.immowelt.de/liste/dreieich/wohnungen/mieten?d=true&pma=900&r=20&rmi=4&sd=DESC&sf=TIMESTAMP&sp=1
 # Define filters to exclude flats that don't meet your critera.
 # Supported filters include 'max_rooms', 'min_rooms', 'max_size', 'min_size',
 #   'max_price', 'min_price', and 'excluded_titles'.
@@ -43,6 +45,10 @@ urls:
 #   max_size: 80
 #   max_price_per_square: 1000
 filters:
+   excluded_titles:
+     - "wg"
+     - "zwischenmiete"
+     - "mitbewohner"
 
 # There are often city districts in the address which
 # Google Maps does not like. Use this blacklist to remove
@@ -117,8 +123,8 @@ google_maps_api:
 # have to install a Chrome Web Driver and write below the path to
 # the executable.
 captcha:
-  api_key: YOUR_API_KEY
-  driver_path: YOUR_CHROME_DRIVER_PATH
+  api_key: 8550f0e9dbdd8f9dc8bc9122da7ce5a8
+  driver_path: C:\Users\khali\OneDrive\Desktop\flathunter-main\chromedriver.exe
   driver_arguments:
     - "--headless"
 
@@ -130,7 +136,6 @@ captcha:
 #   - mattermost
 notifiers:
     - telegram
-    - mattermost
 
 # Sending messages using Telegram requires a Telegram Bot configured. 
 # Telegram.org offers a good documentation about how to create a bot.
@@ -144,7 +149,10 @@ notifiers:
 #   receiver_ids:
 #       - 12345....
 #       - 67890....
-
+telegram:
+  bot_token: 5037533961:AAEmBV64hlWKvCTnCPDpmEIiJ2gy4HNxMjo
+  receiver_ids:
+      - 5062452021
 # Sending messages via mattermost requires a webhook url provided by a
 # mattermost server. You can find a description how to set up a webhook with
 # the official mattermost documentation:
